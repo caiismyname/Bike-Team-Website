@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Create Ride</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="css/wickedpicker.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDwKEwzgxSaPetb01Q-BEvGYtOITxYB2JE",
+	    authDomain: "bike-team-website.firebaseapp.com",
+	    databaseURL: "https://bike-team-website.firebaseio.com",
+	    storageBucket: "bike-team-website.appspot.com",
+	    messagingSenderId: "456578393906"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/moment.js"></script>
+	<script src="https://unpkg.com/flatpickr"></script>
+	<script type="text/javascript" src="js/wickedpicker.js"></script>
+	<script src="createRideScript.js"></script>
+
+  </head>
+  
+
+  <body>
+	<div style="text-align: center">
+		<h1> Create a Ride </h1>
+
+		Name<br>
+		<input type="text" name="nameField" placeholder="Name..." id="createRideNameField"><br>
+		<br>
+		Day?<br>
+		<input type="text" name="dateField" placeholder="Select Date" id="createRideDateField" class="flatpickr" ><br>
+		<br>
+		Time?<br>
+		<input type="text" name="timepicker" id="createRideTimeField" class="timepicker"><br>
+		<br>
+		<button type="button" class="btn btn-default" id="createRideSubmitButton">Submit</button>
+	</div>
+
+
+  </body>
+</html>
+
+

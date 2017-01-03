@@ -3,12 +3,50 @@
   <head>
     <meta charset="utf-8">
     <title>WRC Bikers</title>
-    <link rel="stylesheet" href="homeStyle.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDwKEwzgxSaPetb01Q-BEvGYtOITxYB2JE",
+	    authDomain: "bike-team-website.firebaseapp.com",
+	    databaseURL: "https://bike-team-website.firebaseio.com",
+	    storageBucket: "bike-team-website.appspot.com",
+	    messagingSenderId: "456578393906"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/moment.js"></script>
     <script src="homeScript.js"></script>
   </head>
+  
+
   <body>
-    <h1 style="color:red"> This is the homepage </h1>
+    <h1 style="color:red"> WRC Bikers </h1>
+    <h2>Rides</h2> <a class="btn btn-default btn-md" href="createRide.html" role="button">Create</a>
+    <div class="row">
+	    <div class="col-md-3">
+	    	<h3>Today</h3>
+	    	<p id="todayRides"></p>
+	    </div>
+	    <div class="col-md-3">
+	    	<h3>Tomorrow</h3>
+	    	<p id="tomorrowRides"></p>
+	    </div>
+	    <div class="col-md-3">
+	    	<h3 id="dayAfterName"></h3>
+	    	<p id="dayAfterRides"></p>
+	    </div>
+	    <div class="col-md-3">
+	    	<h3 id="twoDaysAfterName"></h3>
+	    	<p id="twoDaysAfterRides"></p>
+	    </div>
+    </div>
 
   </body>
 </html>
+
 
