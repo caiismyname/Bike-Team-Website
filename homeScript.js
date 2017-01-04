@@ -23,30 +23,51 @@ function populateRides() {
 	var dayAfter = moment().add(2, "days").format("YYYY-MM-DD");
 	var twoDaysAfter = moment().add(3, "days").format("YYYY-MM-DD");
 
+	var bikeTrackLat = "29.716015";
+	var bikeTrackLong = "-95.411224";
+
+	var secret = "21a9cf2760ec2731b94424cf2c1b1eb1";
+
 	allRidesRef.once("value").then(function(snapshot){
 		snapshot.forEach(function(childSnap){
 			var data = childSnap.val();
 			var date = data.date;
+			var weatherRequestDateString = moment(date + " " + data.time, "YYYY-MM-DD h:mm A").format("YYYY-MM-DDTHH:mm:ss");
+			console.log(weatherRequestDateString);
 
-			switch(date) {
-				case today:
-					$("#todayRides").append(data.host + ": " + data.time + "<br>");
-					break;
-				case tomorrow:
-					$("#tomorrowRides").append(data.host + ": " + data.time + "<br>");
-					break;
-				case dayAfter:
-					$("#dayAfterRides").append(data.host + ": " + data.time + "<br>");
-					break;
-				case twoDaysAfter:
-					$("#twoDaysAfterRides").append(data.host + ": " + data.time + "<br>");
-					break;
-				case "foo":
-					break;
-				default:
-					console.log('Unexpected Date');
-					break;
-			}
+			// Getting weather data
+			var request = new XMLHttpRequest();
+			request.open("GET", "https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/" + secret + "/" + bikeTrackLat + "," + bikeTrackLong + "," + weatherRequestDateString + "?exclude=daily,alerts,flags", true);
+			request.send();
+
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					var response = JSON.parse(request.responseText);
+					var weatherString = response.currently.icon + " | TEMP: " + response.currently.apparentTemperature + 
+					" | RAIN: " + response.currently.precipProbability + "%";
+
+					switch(date) {
+						case today:
+							$("#todayRides").append("<strong>" + data.host + ": " + data.time + "</strong>" + "<br>" + weatherString + "<br>");
+							break;
+						case tomorrow:
+							$("#tomorrowRides").append("<strong>" + data.host + ": " + data.time + "</strong>" + "<br>" + weatherString + "<br>");
+							break;
+						case dayAfter:
+							$("#dayAfterRides").append("<strong>" + data.host + ": " + data.time + "</strong>" + "<br>" + weatherString + "<br>");
+							break;
+						case twoDaysAfter:
+							$("#twoDaysAfterRides").append("<strong>" + data.host + ": " + data.time + "</strong>" + "<br>" + weatherString + "<br>");
+							break;
+						case "foo":
+							break;
+						default:
+							console.log('Unexpected Date');
+							break;
+					}
+
+				}
+			};
 		});
 	});
 }

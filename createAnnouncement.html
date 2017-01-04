@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <title>Create Announcement</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="css/wickedpicker.css">
+    <link rel="stylesheet" href="fontStyle.css">
     
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script>
@@ -22,27 +21,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/moment.js"></script>
-	<script src="https://unpkg.com/flatpickr"></script>
-	<script type="text/javascript" src="js/wickedpicker.js"></script>
 	<script src="createAnnouncementScript.js"></script>
 
   </head>
   
 
   <body>
-	<div style="text-align: center">
-		<h1> Create an Announcement</h1>
-
-		Name<br>
-		<input type="text" name="nameField" id="createAnnouncementNameField"><br>
-		<br>
-		Title<br>
-		<input type="text" name="titleField" id="createAnnouncementTitleField"><br>
-		<br>
-		Text<br>
-		<textarea name="announcementContent" cols="60" rows="7" id="createAnnouncementContentField"></textarea>
-		<br>
-		<button type="button" class="btn btn-default" id="createAnnouncementSubmitButton">Submit</button>
+  <div class="row">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<h1 style="text-align: center"> Create an Announcement</h1>
+			<p style="display:inline">Name</p><br>
+			<input type="text" name="nameField" id="createAnnouncementNameField" style="width:100%"><br>
+			<br>
+			<p style="display:inline">Title</p><br>
+			<input type="text" name="titleField" id="createAnnouncementTitleField" style="width:100%"><br>
+			<br>
+			<p style="display:inline">Announcement</p><br>
+			<textarea name="announcementContent" cols="60" rows="7" id="createAnnouncementContentField" style="width:100%"></textarea>
+			<br>
+			<button type="button" class="btn btn-default" id="createAnnouncementSubmitButton" >Submit</button>
+		</div>
 	</div>
 
 

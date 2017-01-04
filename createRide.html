@@ -5,6 +5,7 @@
     <title>Create Ride</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="fontStyle.css">
     
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script>
@@ -28,21 +29,17 @@
   
 
   <body>
-	<div style="text-align: center">
-		<h1> Create a Ride </h1>
-
-		Name<br>
-		<input type="text" name="nameField" placeholder="Name..." id="createRideNameField"><br>
-		<br>
-		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6">
+	<div class="row">
+		<h1 style="text-align: center"> Create a Ride </h1>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<p style="display:inline">Name</p><br>
+			<input type="text" name="nameField" id="createRideNameField" style="width:100%"><br>
+			<br>
 				<div id="dateTimePicker"></div>
-			</div>
+			<br>
+			<button type="button" class="btn btn-default" id="createRideSubmitButton">Submit</button>
 		</div>
-		<br>
-		<button type="button" class="btn btn-default" id="createRideSubmitButton">Submit</button>
-	</div>
 
 
   </body>

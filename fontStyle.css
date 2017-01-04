@@ -1,0 +1,29 @@
+@media all and (max-width: 900px) {
+	body {
+		font-size: 40px;
+	}
+}
+
+@media all and (min-width: 901px) {
+	body {
+		font-size: 18px;
+	}
+}
+
+
+p {
+	font-size: 120%;
+}
+
+h1 {
+	font-size: 300%;
+	font-weight: 900;
+}
+
+h2 {
+	font-size: 200%;
+}
+
+h3 {
+	font-size: 175%;
+}
