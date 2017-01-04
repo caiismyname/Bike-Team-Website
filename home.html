@@ -25,32 +25,52 @@
   
 
   <body>
-    <h1 style="color:red"> WRC Bikers </h1>
-	<h2 style="display: inline"><strong>Rides</strong></h2> <a href="createRide.html"><h3 style="display:inline; color: lightgray"> Create</h3></a>
-    <div class="row">
-	    <div class="col-md-3" style="background: lightgray">
-	    	<h3>Today</h3>
-	    	<p id="todayRides"></p>
+  	<!-- main container, so we have padding on the viewport -->
+  	<div style="padding: 10px">
+	    <h1 style="color:red"> WRC Bikers </h1>
+	    <hr>
+		<h2 style="display: inline"><strong>Rides</strong></h2> <a href="createRide.html"><h3 style="display:inline; color: lightgray"> Create</h3></a>
+	    <div class="row" style="padding: 0px 15px">
+		    <div class="col-md-3" style="background: lightgray">
+		    	<h3>Today</h3>
+		    	<p id="todayRides"></p>
+		    </div>
+		    <div class="col-md-3">
+		    	<h3>Tomorrow</h3>
+		    	<p id="tomorrowRides"></p>
+		    </div>
+		    <div class="col-md-3" style="background: lightgray">
+		    	<h3 id="dayAfterName"></h3>
+		    	<p id="dayAfterRides"></p>
+		    </div>
+		    <div class="col-md-3">
+		    	<h3 id="twoDaysAfterName"></h3>
+		    	<p id="twoDaysAfterRides"></p>
+		    </div>
 	    </div>
-	    <div class="col-md-3">
-	    	<h3>Tomorrow</h3>
-	    	<p id="tomorrowRides"></p>
-	    </div>
-	    <div class="col-md-3" style="background: lightgray">
-	    	<h3 id="dayAfterName"></h3>
-	    	<p id="dayAfterRides"></p>
-	    </div>
-	    <div class="col-md-3">
-	    	<h3 id="twoDaysAfterName"></h3>
-	    	<p id="twoDaysAfterRides"></p>
+
+	    <br>
+	    <hr>
+	    <div class="row">
+
+	    	<!-- workouts -->
+	    	<div class="col-md-6">
+			    <h2 style="display: inline"><strong>Workouts</strong></h2>
+			    <br>
+			    <table id="workoutContents"></table>
+	    	</div>
+
+	    	<hr class="visible-xs visible-sm">
+
+	    	<!-- announcements -->
+	    	<div class="col-md-6">
+			    <h2 style="display: inline"><strong>Announcements</strong></h2> <a href="createAnnouncement.html"><h3 style="display:inline; color: lightgray"> Create</h3></a>
+			    <br>
+			    <table id="announcementContents"></table>
+	    	</div>
+
 	    </div>
     </div>
-
-    <br>
-
-    <h2 style="display: inline"><strong>Announcements</strong></h2> <a href="createAnnouncement.html"><h3 style="display:inline; color: lightgray"> Create</h3></a>
-    <br>
-    <span id="announcementContents"></span>
 
   </body>
 </html>

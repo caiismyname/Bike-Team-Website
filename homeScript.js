@@ -1,4 +1,4 @@
-function setRideDayLabels(){
+function setRideDayLabels() {
 	var dayAfterName = moment().add(2, 'days').format("dddd");
 	var twoDaysAfterName = moment().add(3, 'days').format("dddd");
 
@@ -14,7 +14,7 @@ class Ride {
 	}
 }
 
-function populateRides(){
+function populateRides() {
 	var database = firebase.database();
 	var allRidesRef = database.ref("rides");
 
@@ -51,7 +51,7 @@ function populateRides(){
 	});
 }
 
-function populateAnnouncements(){
+function populateAnnouncements() {
 	var database = firebase.database();
 	var announcementsRef = database.ref("announcements");
 
@@ -59,14 +59,39 @@ function populateAnnouncements(){
 		snapshot.forEach(function(childSnap){
 			var data = childSnap.val();
 			if (data.title != "foo") {
-				$("#announcementContents").append("<span style='font-size:1.5em'><strong>" + data.title + "</strong></span><br><span style='color:darkgray'>" + data.author + " | " + data.date + "</span><br>" + data.content + "<br><br>");
+				$("#announcementContents").append("<tr><td><span style='font-size:1.5em'><strong>" + data.title + "</strong></span>" + "  " + "<span>" 
+					+ data.author + " | " + data.date + "</span><br>" + data.content + "</td></tr>");
+				// Alternating row colors
+				$("tr:even").css("background-color", "lightgray");
+				$("td").css("padding", "10px");
 			}
 		})
 	})
 }
 
-$(document).ready(function(){
+function populateWorkouts() {
+	var database = firebase.database();
+	var workoutsRef = database.ref("workouts");
+
+	workoutsRef.once("value").then(function(snapshot) {
+		snapshot.forEach(function(childSnap) {
+			var data = childSnap.val();
+			if (data.title != "foo") {
+				$("#workoutContents").append("<tr><td><span style='font-size:1.5em'><strong>" + data.title + "</strong></span>" + "  " + "<span>" 
+					+ data.weekOf + "</span><br>" + data.content + "</td></tr>");
+				// Alternating row colors
+				$("tr:even").css("background-color", "lightgray");
+				$("td").css("padding", "10px 10px");
+			}
+		})
+	})
+
+
+}
+
+$(document).ready(function() {
 	setRideDayLabels();
 	populateRides();
+	populateWorkouts();
 	populateAnnouncements();
 })
