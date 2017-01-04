@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Create Ride</title>
+    <title>Create Announcement</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="css/wickedpicker.css">
@@ -24,25 +24,22 @@
     <script src="js/moment.js"></script>
 	<script src="https://unpkg.com/flatpickr"></script>
 	<script type="text/javascript" src="js/wickedpicker.js"></script>
-	<script src="createRideScript.js"></script>
+	<script src="createAnnouncementScript.js"></script>
 
   </head>
   
 
   <body>
 	<div style="text-align: center">
-		<h1> Create a Ride </h1>
+		<h1> Create an Announcement</h1>
 
 		Name<br>
-		<input type="text" name="nameField" placeholder="Name..." id="createRideNameField"><br>
+		<input type="text" name="nameField" id="createAnnouncementNameField"><br>
 		<br>
-		Day?<br>
-		<input type="text" name="dateField" placeholder="Select Date" id="createRideDateField" class="flatpickr" ><br>
+		Text<br>
+		<textarea name="announcementContent" cols="60" rows="7" id="createAnnouncementContentField"></textarea>
 		<br>
-		Time?<br>
-		<input type="text" name="timeField" placeholder="Select Time" id="createRideTimeField" class="flatpickr" ><br>
-		<br>
-		<button type="button" class="btn btn-default" id="createRideSubmitButton">Submit</button>
+		<button type="button" class="btn btn-default" id="createAnnouncementSubmitButton">Submit</button>
 	</div>
 
 

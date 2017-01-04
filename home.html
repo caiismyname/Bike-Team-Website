@@ -5,7 +5,7 @@
     <title>WRC Bikers</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     
-    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script>
 	  // Initialize Firebase
 	  var config = {
@@ -26,9 +26,9 @@
 
   <body>
     <h1 style="color:red"> WRC Bikers </h1>
-    <h2>Rides</h2> <a class="btn btn-default btn-md" href="createRide.html" role="button">Create</a>
+	<h2 style="display: inline"><strong>Rides</strong></h2> <a href="createRide.html"><h3 style="display:inline; color: lightgray"> Create</h3></a>
     <div class="row">
-	    <div class="col-md-3">
+	    <div class="col-md-3" style="background: lightgray">
 	    	<h3>Today</h3>
 	    	<p id="todayRides"></p>
 	    </div>
@@ -36,7 +36,7 @@
 	    	<h3>Tomorrow</h3>
 	    	<p id="tomorrowRides"></p>
 	    </div>
-	    <div class="col-md-3">
+	    <div class="col-md-3" style="background: lightgray">
 	    	<h3 id="dayAfterName"></h3>
 	    	<p id="dayAfterRides"></p>
 	    </div>
@@ -45,6 +45,11 @@
 	    	<p id="twoDaysAfterRides"></p>
 	    </div>
     </div>
+
+    <br>
+
+    <h2 style="display: inline"><strong>Announcements</strong></h2> <a href="createAnnouncement.html"><h3 style="display:inline; color: lightgray"> Create</h3></a>
+
 
   </body>
 </html>

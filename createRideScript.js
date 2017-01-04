@@ -2,7 +2,7 @@ function createRide(){
 	// Getting the info from the forms
 	var name = $("#createRideNameField").val();
 	var date = $("#createRideDateField").val();
-	var time = $("#createRideTimeField").val().replace(/\s/g, '').replace("PM", " PM").replace("AM", " AM");
+	// var time = $("#createRideTimeField").val().replace(/\s/g, '').replace("PM", " PM").replace("AM", " AM");
 	console.log(name);
 	console.log(date);
 	console.log(time);
@@ -22,12 +22,19 @@ function createRide(){
 
 $(document).ready(function(){
 
-	$(".flatpickr").flatpickr({}); 
+	$("#createRideDateField").flatpickr({
+		enableTime: true
+	}); 
 
-	$('.timepicker').wickedpicker({
-		title: "Select a Time",
-		minutesInterval: 1,
-	});
+	$("#createRideTimeField").flatpickr({
+		enableTime: true,
+		noCalendar: true
+	})
+
+	// $('.timepicker').wickedpicker({
+	// 	title: "Select a Time",
+	// 	minutesInterval: 1,
+	// });
 
 	$("#createRideSubmitButton").click(createRide);
 
