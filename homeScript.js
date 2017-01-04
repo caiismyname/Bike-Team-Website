@@ -14,10 +14,6 @@ class Ride {
 	}
 }
 
-function removeRide(ride){
-	firebase.database().ref("rides/" + ride).remove();
-}
-
 function populateRides(){
 	var database = firebase.database();
 	var allRidesRef = database.ref("rides");
@@ -27,7 +23,7 @@ function populateRides(){
 	var dayAfter = moment().add(2, "days").format("YYYY-MM-DD");
 	var twoDaysAfter = moment().add(3, "days").format("YYYY-MM-DD");
 
-	allRidesRef.on("value", function(snapshot){
+	allRidesRef.once("value").then(function(snapshot){
 		snapshot.forEach(function(childSnap){
 			var data = childSnap.val();
 			var date = data.date;
@@ -53,11 +49,24 @@ function populateRides(){
 			}
 		});
 	});
+}
 
+function populateAnnouncements(){
+	var database = firebase.database();
+	var announcementsRef = database.ref("announcements");
 
+	announcementsRef.once("value").then(function(snapshot){
+		snapshot.forEach(function(childSnap){
+			var data = childSnap.val();
+			if (data.title != "foo") {
+				$("#announcementContents").append("<span style='font-size:1.5em'><strong>" + data.title + "</strong></span><br><span style='color:darkgray'>" + data.author + " | " + data.date + "</span><br>" + data.content + "<br><br>");
+			}
+		})
+	})
 }
 
 $(document).ready(function(){
 	setRideDayLabels();
 	populateRides();
+	populateAnnouncements();
 })
