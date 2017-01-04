@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <title>Create Ride</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="css/wickedpicker.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
     
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script>
@@ -22,8 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/moment.js"></script>
-	<script src="https://unpkg.com/flatpickr"></script>
-	<script type="text/javascript" src="js/wickedpicker.js"></script>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
 	<script src="createRideScript.js"></script>
 
   </head>
@@ -36,11 +34,12 @@
 		Name<br>
 		<input type="text" name="nameField" placeholder="Name..." id="createRideNameField"><br>
 		<br>
-		Day?<br>
-		<input type="text" name="dateField" placeholder="Select Date" id="createRideDateField" class="flatpickr" ><br>
-		<br>
-		Time?<br>
-		<input type="text" name="timeField" placeholder="Select Time" id="createRideTimeField"><br>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div id="dateTimePicker"></div>
+			</div>
+		</div>
 		<br>
 		<button type="button" class="btn btn-default" id="createRideSubmitButton">Submit</button>
 	</div>
